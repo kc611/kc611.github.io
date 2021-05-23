@@ -35,15 +35,15 @@ $(document).ready(function(){
 
     // typing text animation script
     var typed = new Typed(".typing", {
-        strings: ["YouTuber", "Developer", "Blogger", "Designer", "Freelancer"],
-        typeSpeed: 100,
+        strings: ["Developer", "Programmer", "ML Enthusiast", "Open Source Contributor"],
+        typeSpeed: 90,
         backSpeed: 60,
         loop: true
     });
 
     var typed = new Typed(".typing-2", {
-        strings: ["YouTuber", "Developer", "Blogger", "Designer", "Freelancer"],
-        typeSpeed: 100,
+        strings: ["Developer", "Programmer", "ML Enthusiast", "Open Source Contributor"],
+        typeSpeed: 90,
         backSpeed: 60,
         loop: true
     });

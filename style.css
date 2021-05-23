@@ -270,7 +270,7 @@ section .title::after{
 .services .title::after,
 .teams .title::after{
     background: #111;
-    content: "what i provide";
+    content: "what i built";
     color: turquoise;
 }
 .services .serv-content .card{
@@ -554,6 +554,28 @@ footer span a:hover{
 }
 
 
+/* blog section styling */
+.blog{
+    display: flex;
+    background: black;
+    height: 100vh;
+    color: #fff;
+    min-height: 500px;
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: 'Ubuntu', sans-serif;
+}
+.blog .max-width{
+  width: 100%;
+  display: flex;
+}
+
+.blog-card{
+    min-height: 500px;
+    width: 100%;
+    background: white;
+}
+
 /* responsive media query start */
 @media (max-width: 1104px) {
     .about .about-content .left img{
@@ -680,3 +702,8 @@ footer span a:hover{
         line-height: 38px;
     }
 }
+
+/* #particles-js {
+    background: black;
+    height: 100vh;
+} */
