@@ -262,7 +262,7 @@ section .title::after{
 .about .about-content .right p{
     text-align: justify;
 }
-.about .about-content .right a{
+.about-me-link{
     display: inline-block;
     background: black;
     color: #fff;
@@ -274,9 +274,13 @@ section .title::after{
     border: 2px solid black;
     transition: all 0.3s ease;
 }
-.about .about-content .right a:hover{
+.about-me-link:hover{
     color: black;
     background: none;
+}
+
+.outlink{
+    color: blue;
 }
 
 /* services section styling */
@@ -324,8 +328,11 @@ section .title::after{
     font-size: 25px;
     font-weight: 500;
     margin: 10px 0 7px 0;
+    color: #fff;
 }
-
+.services .serv-content .card a .box p{
+    color: #fff;
+}
 /* skills section styling */
 
 .skills .title::after{
