@@ -2,8 +2,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Baloo+Bhaina+2:wght@500&display=swap");
 :root { 
   --main-bg-color: #bd6418;
-  --font1: "Baloo Bhaina 2", cursive;
+  --font1: "Lucida Console", "Courier New", monospace;
   --font2: "Roboto", sans-serif;
+  
 }
 
 .center{
@@ -11,8 +12,16 @@
 }
 
 .font1 {
-  font-family: var(--font1);
+   font-size: 1.25rem;
+
+    font-weight: 500;
+    line-height: 1.77;
+     word-wrap: break-word; 
+    color: #000; 
+    text-align: justify;
+    /* font-family: 'Poppins', sans-serif; */
 }
+
 .font2 {
   font-family: var(--font2);
 }
