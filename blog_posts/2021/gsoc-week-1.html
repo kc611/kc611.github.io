@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Google Summer of Code - Community Bonding</title>
+    <title>Google Summer of Code - Week #1</title>
     <!-- <link rel="stylesheet" href="style.css"> -->
     <link rel="stylesheet" href="../../blog_css/utils.css" />
     <link rel="stylesheet" href="../../blog_css/style.css" />
@@ -30,19 +30,23 @@
 
   <body>
     <nav class="navbar blog-navbar">
-        <div class="max-width">
-            <div class="logo"><a href="#">Blog</a></div>
-            <ul class="menu">
-                <li><a href="../../index.html">Home</a></li>
-                <li><a href="../../index.html#about" class="menu-btn">About</a></li>
-                <li><a href="../../index.html#skills" class="menu-btn">Skills</a></li>
-                <li><a href="../../index.html#services" class="menu-btn">Projects</a></li>
-                <li><a href="../../index.html#contact" class="menu-btn">Contact Me</a></li>
-            </ul>
-            <div class="menu-btn">
-                <i class="fas fa-bars"></i>
-            </div>
+      <div class="max-width">
+        <div class="logo"><a href="#">Blog</a></div>
+        <ul class="menu">
+          <li><a href="../../index.html">Home</a></li>
+          <li><a href="../../index.html#about" class="menu-btn">About</a></li>
+          <li><a href="../../index.html#skills" class="menu-btn">Skills</a></li>
+          <li>
+            <a href="../../index.html#services" class="menu-btn">Projects</a>
+          </li>
+          <li>
+            <a href="../../index.html#contact" class="menu-btn">Contact Me</a>
+          </li>
+        </ul>
+        <div class="menu-btn">
+          <i class="fas fa-bars"></i>
         </div>
+      </div>
     </nav>
 
     <section class="blog" id="blog">
@@ -50,7 +54,7 @@
         <img src="../../blog_img/11.svg" alt="" />
       </div>
       <div class="m-auto blog-post-content max-width-2 m-auto my-2">
-        <h1 class="font1">Google Summer of Code - Community Bonding</h1>
+        <h1 class="font1">Google Summer of Code - Week #1</h1>
         <div class="blogpost-meta">
           <div class="author-info">
             <div>
@@ -91,17 +95,89 @@
             </svg>
           </div>
         </div>
+        <p class="font1">Hello!</p>
+        <br>
         <p class="font1">
-          Ongoing...And will be updated soon. Stay tuned!!
+          This is the start of a blog that documents my experience and progress
+          as a GSoC 2021 student with PyMC. The purpose of these blog posts is
+          to keep track of the work being done each week. 
         </p>
+        <br>
         <p class="font1">
+          The community bonding
+          period was a gratifying experience. I got introduced to various PyMC
+          members and to the great community which I was going to be a part of.
+          Some of the community members gave me helpful pointers on basic things
+          like setting up proper development environments and testing
+          frameworks, especially since I broke my Linux OS by not using virtual
+          environments and tried messing with my system python version :-) 
+        </p>
+        <br>
+        <p class="font1">
+          Most
+          of my community bonding time was spent on building the Aesara side of
+          the project. Since I realized that it'll take way more than a week for
+          me to complete(I had allotted the first week of my timetable for this
+          part of the project), plus I had a lot of free time. So I discussed
+          the changes to be made with my mentor <a href="https://github.com/brandonwillard">@brandonwillard</a> and he gave me a thumbs
+          up regarding the implementation. The implementation itself wasn't
+          hard, maybe a bit lengthy, and hence was the perfect way to start
+          coding for GSoC. Other than that we continued the work from pre-GSoC
+          which involved making a Numba variant of the infamous new
+         <i>RandomVariable</i>  Op used in PyMC's v4.0. (<a href="https://github.com/aesara-devs/aesara/pull/403">#403</a>)
+        </p>
+        <br>
+        <p class="font1">
+          The work done by me during Week 1 can be boiled down to the following:
+          <ul style="padding-left: 50px;">
+            <li>
+              <p class="font1">
+              Continued working with Generators in <a href="https://github.com/aesara-devs/aesara/pull/420">#402</a> adding tests and more minor
+              fixes.
+              </p> 
+            </li>
+            <li>
+              <p class="font1">
+                Refactored a few Distributions to be compatible with v4 in <a href="https://github.com/pymc-devs/pymc3/pull/4746">#4746</a> (this
+                also involved making their corresponding RandomVariable classes). This
+                was something that I planned for the second week but put in my current
+                schedule because of <a href="https://github.com/pymc-devs/pymc3/issues/4686">#4686</a>.
+              </p> 
+            </li>
+            <li>
+              <p class="font1">
+                Continued the work with the Numba variant
+                of RandomVariable Op in <a href="https://github.com/aesara-devs/aesara/pull/403">#403</a> .
+              </p>
+            </li>
+          </ul>
+
+        </p>
+        <br>
+        <p class="font1">
+          Now for week 2, I plan on :
           
+          <ul style="padding-left: 50px;">
+            <li>
+              <p class="font1">
+                Quickly (or rather hopefully) refactor the
+                few remaining multivariate distributions in <a href="https://github.com/pymc-devs/pymc3/issues/4686">#4686</a> so we can get the
+                alpha version of v4 out.
+              </p> 
+            </li>
+            <li>
+              <p class="font1">
+                Refactor the remaining distributions in
+          continous.py, multivariate.py and discrete.py
+              </p> 
+            </li>
+          </ul>
+           
         </p>
+        <br>
         <p class="font1">
-
-        </p>
-        <p class="font1">
-
+          This week has been amazing. Thanks to my ever-supportive mentors
+          Brandon Williard and Thomas Wiecki. Looking forward to an amazing journey ahead.
         </p>
       </div>
 
@@ -115,13 +191,11 @@
             </div>
             <div class="home-article-content font1 center">
               <a href="./gsoc-selection.html"
-                ><h3>
-                  Google Summer of Code - Selection
-                </h3></a
+                ><h3>Google Summer of Code - Selection</h3></a
               >
 
               <div>Author Name: Kaustubh Chaudhari</div>
-              <span>29th May | 1 min read</span>
+              <span>29th May | 6 min read</span>
             </div>
           </div>
           <!-- <div class="home-article more-post">
@@ -150,7 +224,6 @@
       </div>
     </section>
     <script src="../../script.js"></script>
-
 
     <footer>
       <span
