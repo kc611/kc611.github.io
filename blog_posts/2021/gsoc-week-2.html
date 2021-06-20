@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Google Summer of Code - Week #2</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <link rel="stylesheet" href="../../blog_css/utils.css" />
+    <link rel="stylesheet" href="../../blog_css/style.css" />
+    <link rel="stylesheet" href="../../blog_css/mobile.css" />
+    <link rel="stylesheet" href="../../blog_css/blogpost.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.11/typed.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@300&family=Montserrat:wght@300&family=Raleway:wght@200;300&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+</head>
+
+<body>
+    <nav class="navbar blog-navbar">
+        <div class="max-width">
+            <div class="logo"><a href="#">Blog</a></div>
+            <ul class="menu">
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../../index.html#about" class="menu-btn">About</a></li>
+                <li><a href="../../index.html#skills" class="menu-btn">Skills</a></li>
+                <li>
+                    <a href="../../index.html#services" class="menu-btn">Projects</a>
+                </li>
+                <li>
+                    <a href="../../index.html#contact" class="menu-btn">Contact Me</a>
+                </li>
+            </ul>
+            <div class="menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <section class="blog" id="blog">
+        <div class="post-img">
+            <img src="../../blog_img/11.svg" alt="" />
+        </div>
+        <div class="m-auto blog-post-content max-width-2 m-auto my-2">
+            <h1 class="font1" style="font-size: x-large; font-weight: bold;">Google Summer of Code - Week #2</h1>
+            <div class="blogpost-meta">
+                <div class="author-info">
+                    <div>
+                        <b> Author - Kaustubh Chaudhari </b>
+                    </div>
+                    <div>20th June. 6 min read</div>
+                </div>
+                <div class="social">
+                    <svg width="29" height="29" class="hk">
+                        <path
+                            d="M22.05 7.54a4.47 4.47 0 0 0-3.3-1.46 4.53 4.53 0 0 0-4.53 4.53c0 .35.04.7.08 1.05A12.9 12.9 0 0 1 5 6.89a5.1 5.1 0 0 0-.65 2.26c.03 1.6.83 2.99 2.02 3.79a4.3 4.3 0 0 1-2.02-.57v.08a4.55 4.55 0 0 0 3.63 4.44c-.4.08-.8.13-1.21.16l-.81-.08a4.54 4.54 0 0 0 4.2 3.15 9.56 9.56 0 0 1-5.66 1.94l-1.05-.08c2 1.27 4.38 2.02 6.94 2.02 8.3 0 12.86-6.9 12.84-12.85.02-.24 0-.43 0-.65a8.68 8.68 0 0 0 2.26-2.34c-.82.38-1.7.62-2.6.72a4.37 4.37 0 0 0 1.95-2.51c-.84.53-1.81.9-2.83 1.13z">
+                        </path>
+                    </svg>
+
+                    <svg style="background: black; border-radius: 21px" width="29" height="29" viewBox="0 0 29 29"
+                        fill="none" class="hk">
+                        <path
+                            d="M5 6.36C5 5.61 5.63 5 6.4 5h16.2c.77 0 1.4.61 1.4 1.36v16.28c0 .75-.63 1.36-1.4 1.36H6.4c-.77 0-1.4-.6-1.4-1.36V6.36z">
+                        </path>
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M10.76 20.9v-8.57H7.89v8.58h2.87zm-1.44-9.75c1 0 1.63-.65 1.63-1.48-.02-.84-.62-1.48-1.6-1.48-.99 0-1.63.64-1.63 1.48 0 .83.62 1.48 1.59 1.48h.01zM12.35 20.9h2.87v-4.79c0-.25.02-.5.1-.7.2-.5.67-1.04 1.46-1.04 1.04 0 1.46.8 1.46 1.95v4.59h2.87v-4.92c0-2.64-1.42-3.87-3.3-3.87-1.55 0-2.23.86-2.61 1.45h.02v-1.24h-2.87c.04.8 0 8.58 0 8.58z"
+                            fill="#fff"></path>
+                    </svg>
+
+                    <svg width="29" height="29" class="hk">
+                        <path
+                            d="M23.2 5H5.8a.8.8 0 0 0-.8.8V23.2c0 .44.35.8.8.8h9.3v-7.13h-2.38V13.9h2.38v-2.38c0-2.45 1.55-3.66 3.74-3.66 1.05 0 1.95.08 2.2.11v2.57h-1.5c-1.2 0-1.48.57-1.48 1.4v1.96h2.97l-.6 2.97h-2.37l.05 7.12h5.1a.8.8 0 0 0 .79-.8V5.8a.8.8 0 0 0-.8-.79">
+                        </path>
+                    </svg>
+                </div>
+            </div>
+            <p class="font1">Hey there!</p>
+            <br>
+            <p class="font1">
+                Hope you are doing well. This is the second week of my GSoC journey with PyMC. So I am assuming you know
+                about PyMC and the project, if not, do check out <a href="https://docs.pymc.io/">PyMC</a> and my <a
+                    href="./gsoc-selection.html">previous blog post</a> about my GSoC project.
+            </p>
+            <br>
+            <p class="font1" style="font-size: x-large; font-weight: bold;">Progress this week: </p>
+            <br>
+            <p class="font1">
+                This week, it was planned that we'll be refactoring the remaining distributions from <a
+                    href="https://github.com/pymc-devs/pymc3/blob/main/pymc3/distributions/continuous.py">continous.py</a>,
+                <a href="https://github.com/pymc-devs/pymc3/blob/main/pymc3/distributions/discrete.py">discrete.py</a>,
+                and <a
+                    href="https://github.com/pymc-devs/pymc3/blob/main/pymc3/distributions/multivariate.py">multivariate.py</a>,
+                however much of these distributions were already refactored thanks to
+                people from the community. And since <a href="https://github.com/pymc-devs/pymc3/issues/4686">#4686</a>
+                was being set up for an alpha release, I refactored the
+                remaining distributions from <a
+                    href="https://github.com/pymc-devs/pymc3/blob/main/pymc3/distributions/continuous.py">continous.py</a>
+                in <a href="https://github.com/pymc-devs/pymc3/pull/4746">#4746</a>. Hence this week, I worked on
+                refactoring the
+                multivariate distributions from <a href="https://github.com/pymc-devs/pymc3/issues/4686">#4686</a>.
+            </p>
+            <br>
+            <p class="font1">
+                The specific distributions that I worked on are as follows :
+                <br>
+            <ul style="padding-left: 50px;">
+                <li>
+                    <p class="font1">
+                        Wishart and MatrixNormal distribution (<a
+                            href="https://github.com/pymc-devs/pymc3/pull/4777">#4777</a>): The refactoring work here is
+                        mostly done. The only thing
+                        holding it back is a
+                        ndim_supp issue (<a
+                            href="https://github.com/pymc-devs/pymc3/pull/4777#discussion_r654753920">link to
+                            comment</a>) with the Wishart distribution. The ndim_supp was introduced in v4 as a sanity
+                        check for shapes of distribution samples. This comment explains it's work in detail: <a
+                            href="https://github.com/pymc-devs/pymc3/pull/4777#discussion_r654832110">link to
+                            comment</a>
+                    </p>
+                </li>
+                <li>
+                    <p class="font1">
+                        LKJCorr and _LKJCholeskyCov (<a href="https://github.com/pymc-devs/pymc3/pull/4784">#4784</a>):
+                        The work here can be marked as work in progress, the issue with
+                        this refactoring is
+                        implementing fancy indexing symbolically (<a
+                            href="https://github.com/pymc-devs/pymc3/pull/4784#discussion_r654766531">link to
+                            comment</a>). Other than that, a few tests will be needed and we'll
+                        be good to go.
+
+                    </p>
+                </li>
+                <li>
+                    <p class="font1">
+                        KroneckerNormal distribution (<a href="https://github.com/pymc-devs/pymc3/pull/4774">#4774</a>):
+                        This particular class faces major design issues, as its logp
+                        method relied heavily on object-oriented instance variables in v3. And this is something we're
+                        trying to avoid in v4, by passing those variables as arguments and essentially making dist and
+                        logp class methods, hence extending their workability without the need to define an entire
+                        instance of a distribution class. Implementing a v4 version of this distribution with its full
+                        capabilities might require some out-of-the-box hacks like <a
+                            href="https://github.com/pymc-devs/pymc3/pull/4774#discussion_r654185735">this</a> and <a
+                            href="https://github.com/pymc-devs/pymc3/pull/4774#discussion_r652594715">this one</a>
+                        . Regardless, if the current
+                        issue with the conversion of instance variables to arguments (as TensorConstants and
+                        TensorVariables) is resolved the rest of the refactoring won't be much of a problem.
+                    </p>
+                </li>
+            </ul>
+
+            </p>
+            <br>
+            <p class="font1" style="font-size: x-large; font-weight: bold;">What's Next: </p>
+            <br>
+            <p class="font1">
+                The next week I plan on discussing and refactoring the <a href="https://github.com/pymc-devs/pymc3/blob/7be2025c4091e450f9e9dd050eb0dca08995c83f/pymc3/distributions/mixture.py#L41">Mixture class</a>, which will be another challenge in itself and complete the refactoring in
+                <a href="https://github.com/pymc-devs/pymc3/pull/4774">#4774</a> and <a href="https://github.com/pymc-devs/pymc3/pull/4784">#4784</a>. And hopefully this week we can complete the targets from <a href="https://github.com/pymc-devs/pymc3/issues/4686">#4686</a>.
+
+            </p>
+            <br>
+            <p class="font1" style="font-size: x-large; font-weight: bold;">A Note of Thanks: </p>
+            <br>
+            <p class="font1">
+                Thanks to the amazing mentors and contributors in the community for helping me out with suggestions and
+                reviews.
+            </p>
+        </div>
+
+        <div class="max-width-1 m-auto">
+            <hr />
+        </div>
+        <div class="home-articles max-width-1 m-auto font2">
+            <h2>People who read this also read</h2>
+            <div class="row">
+                <div class="home-article more-post">
+                    <div class="home-article-img">
+                      <img src="../../blog_img/11.svg" alt="article" />
+                    </div>
+                    <div class="home-article-content font1 center">
+                      <a href="./gsoc-selection.html"
+                        ><h3>Google Summer of Code - Selection</h3></a
+                      >
+        
+                      <div>Author Name: Kaustubh Chaudhari</div>
+                      <span>29th May | 6 min read</span>
+                    </div>
+                  </div>
+                <div class="home-article more-post">
+                    <div class="home-article-img">
+                        <img src="../../blog_img/11.svg" alt="article" />
+                    </div>
+                    <div class="home-article-content font1 center">
+                        <a href="./gsoc-week-1.html">
+                            <h3>Google Summer of Code - Week #1</h3>
+                        </a>
+
+                        <div>Author Name: Kaustubh Chaudhari</div>
+                        <span>13th June | 6 min read</span>
+                    </div>
+                </div>
+                <!-- <div class="home-article more-post">
+            <div class="home-article-img">
+                <img src="img/1.png" alt="article">
+            </div>
+            <div class="home-article-content font1 center">
+                <a href="/blogpost.html"><h3>Learn more about Machine Learning techniques in India by joining this channel</h3></a>
+                
+                <div>Author Name</div>
+                <span>07 January | 6 min read</span>
+            </div>
+        </div>
+        <div class="home-article more-post">
+            <div class="home-article-img">
+                <img src="img/2.png" alt="article">
+            </div>
+            <div class="home-article-content font1 center">
+                <a href="/blogpost.html"><h3>Learn more about Machine Learning techniques in India by joining this channel</h3></a>
+                
+                <div>Author Name</div>
+                <span>07 January | 6 min read</span>
+            </div>
+        </div> -->
+            </div>
+        </div>
+    </section>
+    <script src="../../script.js"></script>
+
+    <footer>
+        <span>Created By Kaustubh Chaudhari |
+            <span class="far fa-copyright"></span> 2020 All rights reserved.</span>
+    </footer>
+</body>
+
+</html>
