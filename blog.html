@@ -1,32 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Personal Blog</title>
-    <!-- <link rel="stylesheet" href="style.css"> -->
-    <link rel="stylesheet" href="blog_css/utils.css">
-    <link rel="stylesheet" href="blog_css/style.css">
-    <link rel="stylesheet" href="blog_css/mobile.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+    <link rel="stylesheet" href="blog_css/tailwind_classic.css">
+    <link rel="stylesheet" href="blog_css/blog_styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.11/typed.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@300&family=Montserrat:wght@300&family=Raleway:wght@200;300&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"/>
-
 </head>
+
+
 <body>
-    <nav class="navbar blog-navbar">
+    <div class="scroll-up-btn">
+        <i class="fas fa-angle-up"></i>
+    </div>
+    <nav class="navbar">
         <div class="max-width">
-            <div class="logo"><a href="#">Blog</a></div>
+            <div class="logo"><a href="./blog.html">Blog.</a></div>
             <ul class="menu">
-                <li><a href="./index.html">Home</a></li>
-                <li><a href="./index.html#about" class="menu-btn">About</a></li>
-                <li><a href="./index.html#skills" class="menu-btn">Skills</a></li>
-                <li><a href="./index.html#services" class="menu-btn">Projects</a></li>
+                <li><a href="./index.html" class="menu-btn">Home</a></li>
+                <li><a href="https://drive.google.com/file/d/1pmijV86jIG2T6yemjeIEkXLcJ-RgG6Gr/view?usp=sharing"
+                        class="menu-btn">Resume</a></li>
                 <li><a href="./index.html#contact" class="menu-btn">Contact Me</a></li>
             </ul>
             <div class="menu-btn">
@@ -35,173 +31,130 @@
         </div>
     </nav>
 
+
+
+
     <!-- home section start -->
-    <section class="blog" id="blog">
-        <div style="width: 100%;height: 45px;"></div>
-        <div class="max-width-1 m-auto">
-            <hr>
-        </div>
-        <div class="m-auto content max-width-1 my-2">
-            <div class="content-left">
-                <h1>My Personal Blog</h1>
-                <p>Welcome to my Blog. Here, I'll be posting about my various experiences in life and this will also serve as a platform for my GSOC updates.</p>
-                <p>Stay tuned!</p>
-            </div>
-            <div class="content-right">
-                <img src="blog_img/home.svg" alt="iBlog">
+    <div class="h-screen z-0">
+        <div class="w-full h-2/5 bg-black">
+            <div class="w-full h-2/5"></div>
+            <div class="w-full text-center text-white p-4 text-4xl">
+                All Posts
             </div>
         </div>
-    
-        <div class="max-width-1 m-auto">
-            <hr>
+
+
+    </div>
+
+    <div class="h-screen w-full absolute top-0 left-0 z-10">
+        <div class="h-max bg-white mx-96 mt-72 mb-20 card rounded-3xl shadow-lg">
+
+            <div class="w-full h-20 flex">
+                <hr style="color: black;width: 80%;align-self: center;" class="mx-auto">
+            </div>
+            <a href="./blog_posts/2021/gsoc-week-3-4.html">
+                <div class="w-full grid grid-cols-5">
+
+                    <div class="my-auto col-span-2 w-3/5 mx-auto">
+                        <img src="./blog_img/pymc-logo.png" alt="" srcset="" class="">
+                    </div>
+                    <div class="col-span-2 h-full py-12">
+                        <div class="text-center text-xl font-bold">
+                            Google Summer of Code 2021 - Week #3 & Week #4.
+                        </div>
+                        <div class="text-center">
+                            Week 3 and 4 working under PyMC
+                        </div>
+                        <div class="text-center mt-4 text-gray-400">
+                            5th July, 2021 | 5 min read
+                        </div>
+                    </div>
+                    <div></div>
+                </div>
+            </a>
+            <!-- Inner Cards -->
+            <div class="w-full h-20 flex">
+                <hr style="color: black;width: 80%;align-self: center;" class="mx-auto">
+            </div>
+            <a href="./blog_posts/2021/gsoc-week-2.html">
+                <div class="w-full grid grid-cols-5">
+                    <div class="my-auto col-span-2 w-3/5 mx-auto">
+                        <img src="./blog_img/pymc-logo.png" alt="" srcset="" class="">
+                    </div>
+                    <div class="col-span-2 h-full py-12">
+                        <div class="text-center text-xl font-bold">
+                            Google Summer of Code 2021 - Week #2.
+                        </div>
+                        <div class="text-center">
+                            Week 2 working under PyMC
+                        </div>
+                        <div class="text-center mt-4 text-gray-400">
+                            20th June, 2021 | 5 min read
+                        </div>
+                    </div>
+                    <div></div>
+                </div>
+            </a>
+            <div class="w-full h-20 flex">
+                <hr style="color: black;width: 80%;align-self: center;" class="mx-auto">
+            </div>
+            <a href="./blog_posts/2021/gsoc-week-1.html">
+                <div class="w-full grid grid-cols-5">
+                    <div class="my-auto col-span-2 w-3/5 mx-auto">
+                        <img src="./blog_img/pymc-logo.png" alt="" srcset="" class="">
+                    </div>
+                    <div class="col-span-2 h-full py-12">
+                        <div class="text-center text-xl font-bold">
+                            Google Summer of Code 2021 - Week #1.
+                        </div>
+                        <div class="text-center">
+                            Week 1 working under PyMC
+                        </div>
+                        <div class="text-center mt-4 text-gray-400">
+                            13th June, 2021 | 5 min read
+                        </div>
+                    </div>
+                    <div></div>
+                </div>
+            </a>
+            <div class="w-full h-20 flex">
+                <hr style="color: black;width: 80%;align-self: center;" class="mx-auto">
+            </div>
+            <a href="./blog_posts/2021/gsoc-selection.html">
+                <div class="w-full grid grid-cols-5">
+                    <div class="my-auto col-span-2 w-2/5 mx-auto">
+                        <img src="./blog_img/vertical-gsoc-logo-200.jpg" alt="" srcset="" class="">
+                    </div>
+                    <div class="col-span-2 h-full py-12">
+                        <div class="text-center text-xl font-bold">
+                            Google Summer of Code 2021 - Selection.
+                        </div>
+                        <div class="text-center">
+                            Journey to GSoC '2021 under PyMC
+                        </div>
+                        <div class="text-center mt-4 text-gray-400">
+                            28th May, 2021 | 6 min read
+                        </div>
+                    </div>
+                    <div></div>
+                </div>
+            </a>
+            <div class="w-full h-20 flex">
+                <hr style="color: black;width: 80%;align-self: center;" class="mx-auto">
+            </div>
+
         </div>
-        <div class="home-articles max-width-1 m-auto font2">
-            <h2>Featured Articles</h2>
-            <!-- <div class="year-box adjust-year">
-                <div>
-                    <h3>Year </h3>
-                </div>
-                <div>
-                    <input type="radio" name="year" id=""> 2020
-                </div>
-                <div>
-                    <input type="radio" name="year" id=""> 2021
-                </div>
-            </div> -->
-            <div class="home-article">
-                <div class="home-article-img">
-                    <img src="blog_img/1.png" alt="article">
-                </div>
-                <div class="home-article-content font1">
-                    <a href="./blog_posts/2021/gsoc-selection.html">
-                        <h3>Google Summer of Code 2021 - Selection.</h3>
-                    </a>
-    
-                    <div>Author Name: Kaustubh Chaudhari</div>
-                    <span>28th May | 6 min read</span>
-                </div>
-            </div>
-            <div class="home-article">
-                <div class="home-article-img">
-                    <img src="blog_img/1.png" alt="article">
-                </div>
-                <div class="home-article-content font1">
-                    <a href="./blog_posts/2021/gsoc-week-1.html">
-                        <h3>Google Summer of Code 2021 - Week #1.</h3>
-                    </a>
-    
-                    <div>Author Name</div>
-                    <span>13th June | 5 min read</span>
-                </div>
-            </div>
-            <div class="home-article">
-                <div class="home-article-img">
-                    <img src="blog_img/1.png" alt="article">
-                </div>
-                <div class="home-article-content font1">
-                    <a href="./blog_posts/2021/gsoc-week-2.html">
-                        <h3>Google Summer of Code 2021 - Week #2.</h3>
-                    </a>
-    
-                    <div>Author Name</div>
-                    <span>20th June | 5 min read</span>
-                </div>
-            </div>
-            <!-- <div class="home-article">
-                <div class="home-article-img">
-                    <img src="img/2.png" alt="article">
-                </div>
-                <div class="home-article-content font1">
-                    <a href="./blogpost.html">
-                        <h3>Lorem ipsum dolor sit amet consectetur adipisicing.</h3>
-                    </a>
-    
-                    <div>Author Name</div>
-                    <span>07 January | 6 min read</span>
-                </div>
-            </div> -->
-            <!-- <div class="home-article">
-                <div class="home-article-img">
-                    <img src="img/1.png" alt="article">
-                </div>
-                <div class="home-article-content font1">
-                    <a href="./blogpost.html">
-                        <h3>Lorem ipsum dolor sit amet consectetur adipisicing.</h3>
-                    </a>
-    
-                    <div>Author Name</div>
-                    <span>07 January | 6 min read</span>
-                </div>
-            </div>
-            <div class="home-article">
-                <div class="home-article-img">
-                    <img src="img/11.svg" alt="article">
-                </div>
-                <div class="home-article-content font1">
-                    <a href="./blogpost.html">
-                        <h3>Lorem ipsum dolor sit amet consectetur adipisicing.</h3>
-                    </a>
-    
-                    <div>Author Name</div>
-                    <span>07 January | 6 min read</span>
-                </div>
-            </div>
-            <div class="home-article">
-                <div class="home-article-img">
-                    <img src="img/3.png" alt="article">
-                </div>
-                <div class="home-article-content font1">
-                    <a href="./blogpost.html">
-                        <h3>Lorem ipsum dolor sit amet consectetur adipisicing.</h3>
-                    </a>
-    
-                    <div>Author Name</div>
-                    <span>07 January | 6 min read</span>
-                </div>
-            </div>
-            <div class="home-article">
-                <div class="home-article-img">
-                    <img src="img/2.png" alt="article">
-                </div>
-                <div class="home-article-content font1">
-                    <a href="./blogpost.html">
-                        <h3>Lorem ipsum dolor sit amet consectetur adipisicing.</h3>
-                    </a>
-    
-                    <div>Author Name</div>
-                    <span>07 January | 6 min read</span>
-                </div>
-            </div>
-            <div class="home-article">
-                <div class="home-article-img">
-                    <img src="img/11.svg" alt="article">
-                </div>
-                <div class="home-article-content font1">
-                    <a href="./blogpost.html">
-                        <h3>Lorem ipsum dolor sit amet consectetur adipisicing.</h3>
-                    </a>
-    
-                    <div>Author Name</div>
-                    <span>07 January | 6 min read</span>
-                </div>
-            </div> -->
-    
-        </div>
-    
-    </section>
+
+        <footer>
+            <span>Created By Kaustubh Chaudhari | <span class="far fa-copyright"></span> 2020 All rights
+                reserved.</span>
+        </footer>
+    </div>
 
     <!-- footer section start -->
-    <footer>
-        <span>Created By Kaustubh Chaudhari | <span class="far fa-copyright"></span> 2020 All rights reserved.</span>
-    </footer>
 
-    <script src="script.js"></script>
-    <!-- Import Particles.js and app.js files -->
-    <script src=
-        "particles.js">
-    </script>
-    <script src=
-        "app.js">
-    </script>
+
+    <script src="blog_scripts/blog_home.js"></script>
 </body>
+
 </html>
