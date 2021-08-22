@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Google Summer of Code 2021 - Week #3 and #4.</title>
+    <link rel="stylesheet" href="../../blog_css/tailwind_classic.css" />
+    <link rel="stylesheet" href="../../blog_css/blog_styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+</head>
+
+<body>
+    <div class="scroll-up-btn">
+        <i class="fas fa-angle-up"></i>
+    </div>
+    <nav class="navbar">
+        <div class="max-width">
+            <div class="logo"><a href="../../blog.html">Blog.</a></div>
+            <ul class="menu">
+                <li><a href="../../index.html" class="menu-btn">Home</a></li>
+                <li>
+                    <a href="https://drive.google.com/file/d/1pmijV86jIG2T6yemjeIEkXLcJ-RgG6Gr/view?usp=sharing"
+                        class="menu-btn">Resume</a>
+                </li>
+                <li>
+                    <a href="../../index.html#contact" class="menu-btn">Contact Me</a>
+                </li>
+            </ul>
+            <div class="menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- home section start -->
+    <div class="h-screen z-0">
+        <div class="w-full h-2/5 bg-black">
+            <div class="w-full h-2/5"></div>
+            <div class="w-full text-center text-white p-4 text-4xl">
+                Google Summer of Code 2021 - Final Work Summary
+            </div>
+            <div class="text-center text-white">
+                <i class="fa fa-calendar" aria-hidden="true"></i> 21st Aug, 2021 |
+                <i class="fa fa-clock" aria-hidden="true"></i> 10 min read
+            </div>
+        </div>
+    </div>
+
+    <div class="h-screen w-full absolute top-0 left-0 z-10">
+        <div class="h-max bg-white mx-96 mt-72 mb-20 card rounded-3xl shadow-lg">
+            <div class="h-full w-full p-20">
+                <div class="w-full px-20 flex items-center">
+                    <img src="./../../blog_img/vertical-gsoc-logo-200.jpg" alt="" srcset="" class="ml-24" />
+                    <img src="./../../blog_img/pymc-logo.png" alt="" srcset="" class="h-4/5" />
+                </div>
+
+                <div class="text-3xl font-bold">
+                    <i class="text-blue-500">#</i> Hey there!
+                </div>
+                <div class="text-2xl px-20 py-4">
+                    <p class="py-4">
+                        This blog post is meant to summarize the work done, my experience and my progress as a GSoC 2021
+                        student with PyMC. If you didn't already, do check out <a href="https://docs.pymc.io/"
+                            class="bloglink">PyMC</a> and my previous blog post about
+                        <a href="https://kc611.github.io/blog_posts/2021/gsoc-selection.html" class="bloglink">my GSoC
+                            project</a>. For those wanting a quick read of contributions, skip down to the last three sections. I've listed my work and future goals over there briefly. So let's get started.
+                    </p>
+                </div>
+
+                <div class="text-3xl font-bold">
+                    <i class="text-blue-500">#</i> So what did you do during GSOC?
+                </div>
+                <div class="text-2xl px-20 py-4">
+                    <p class="py-4">
+                        The overall project goals I had during the GSoC period can be summed up in the following key
+                        points:
+                    <ul style="padding-left: 50px;">
+                        <li>
+                            <p class="py-4">
+                                - Made the <i class="code">RandomVariable</i> classes in Aesara compatible with the
+                                newly implemented <i class="code">RandomGenerator</i>
+                                classes, so PyMC can make use of the newer features provided by Numpy's <i
+                                    class="code">Generators</i> interface for random number generation.
+                            </p>
+                        </li>
+                        <li>
+                            <p class="py-4">
+                                - Provided implementations of new <i class="code">RandomVariables</i> for
+                                existing <i class="code">Distribution</i> classes that did not
+                                already have an implementation in <i class="code">aesara.tensor.random</i>
+
+                            </p>
+                        </li>
+                        <li>
+                            <p class="py-4">
+                                - Refactored the remaining <i class="code">Distribution</i> classes according to the new
+                                <i class="code">v4</i> interface.
+                            </p>
+                        </li>
+                        <li>
+                            <p class="py-4">
+                                - Implementation of a system for automatic log-likelihood derivation for simple
+                                arbitrary
+                                expressions of <i class="code">RandomVariable</i> <i class="code">Ops</i>.
+                            </p>
+                        </li>
+                        <li>
+                            <p class="py-4">
+                                - Implementation of <i class="code">NumbaLinker</i> and
+                                Numba implementations of some Aesara <i class="code">Ops</i>.
+                            </p>
+                        </li>
+                    </ul>
+
+                    </p>
+                </div>
+                <div class="text-3xl font-bold">
+                    <i class="text-blue-500">#</i> First Half of GSoC:
+                </div>
+                <div class="text-2xl px-20 py-4">
+                    <p>My work in the first half of GSoC was mainly focused on refactoring and
+                        updating code throughout the Aesara and PyMC libraries.
+                    </p>
+                    <br>
+                    <p>
+                        Something I was already involved in with Aesara was the 
+                       <a href="https://github.com/aesara-devs/aesara/pull/372" class="bloglink">implementation of the Numba Linker</a> in Aesara.
+                    Firstly let us understand what linkers are and how they work in the first place.
+                    So post-refactoring the way linkers were implemented is that they took the Aesara <i class="code">FunctionGraph</i> 
+                    (which, in layman's terms, is basically a representation of the operations being performed by a
+                    certain function/set of functions in Aesara) and converted it into nested functions written in Jax.
+                    Each <i class="code">Op</i> (class that represents an atomic operation in Aesara, for instance addition) was converted to its respective Jax counterpart. This
+                    approach however made the code quite complex and there were many logical issues with making nested
+                    functions like that.
+                    </p>
+                    <br>
+                    <p>
+                        To resolve the problems, <a href="https://github.com/brandonwillard" class="bloglink">@brandonwillard</a> 
+                        implemented <a href="https://github.com/aesara-devs/aesara/pull/371" class="bloglink">JitLinker class in Aesara</a> to act as a base class
+                    for such linkers since it made sense to have a common base logic for both the 
+                    <i class="code">JaxLinker</i> and a newly
+                    planned <i class="code">NumbaLinker</i>. The <i class="code">JitLinkers</i> work by converting 
+                    Aesara <i class="code">FunctionGraphs</i> into flattened
+                    AST-generated functions. Then the <i class="code">NumbaLinker</i> was basically built upon this JitLinker 
+                    machinery in <a href="https://github.com/aesara-devs/aesara/pull/371" class="bloglink">#371</a>.
+                    Thereafter I also worked on implementing a <i class="code">RandomVariable</i> <i class="code">Op</i> conversion for the <i class="code">NumbaLinker</i> in
+                    <a href="https://github.com/aesara-devs/aesara/pull/403" class="bloglink">#403</a>, which then ultimately allowed operations that used
+                    these <i class="code">RandomVariable</i> classes in PyMC to be executed in Numba.
+                    </p>
+                    
+                    <br>
+                    <p>
+                        Thereafter I implemented the <i class="code">Generator</i> support in Aesara allowing the 
+                        <i class="code">RandomVariable</i> classes to use
+                    the new features and speed provided by Numpy's <i class="code">Generator</i> class. This was done in
+                    <a href="https://github.com/aesara-devs/aesara/pull/420" class="bloglink">#420</a>. The new <i class="code">Generator</i>
+                     class allowed us to shift from the
+                    old global seeding approach for Numpy (using <i class="code">numpy.seed()</i>) to a more simpler, efficient and less buggy object-based approach (by allowing
+                    us to pass around the <i class="code">Generator</i>/<i class="code">RandomState</i> as an object).
+                    </p>
+
+                    <br>
+                    <p>
+                        Most of my first half of GSoC, however, was spent refactoring the various <i class="code">Distributions</i>. The work
+                    here included adding <i class="code">RandomVariable</i> classes for the distributions, refactoring them into the new
+                    <i class="code">Distributions</i> format, and removing object-oriented logic and the redundant shape handling logic from
+                    them. This was done in the following PRs:
+                    <ul style="padding-left: 50px;">
+                        <li>
+                            <p class="py-4">
+                                - Refactored continuous distributions to v4 (<i class="code">AsymmetricLaplace</i>, <i class="code">HalfStudentT</i>,
+                                <i class="code">ExGaussian</i> ,
+                                <i class="code">Interpolated</i>) <a href="https://github.com/pymc-devs/pymc3/pull/4746" class="bloglink">#4746</a>:
+                                 The <i class="code">Interpolated</i> distribution proved to
+                                be a challenge over here as it used the <i class="code">InterpolatedUnivariateSpline</i> class instead of standard
+                                Scipy/Numpy distribution classes like the other distributions. The issue was solved by using this
+                                approach underlined in <a href="https://github.com/pymc-devs/pymc3/pull/4746#discussion_r648413900" class="bloglink">this comment</a> 
+                            </p>
+                        </li>
+                        <li>
+                            <p class="py-4">
+                                - Porting <i class="code">KroneckerNormal</i> distribution to v4 <a href="https://github.com/pymc-devs/pymc3/pull/4774" class="bloglink">#4774</a>: After 
+                                applying the v4
+                                changes <i class="code">KroneckerNormal</i> class had a lot of redundant code, in fact, after refactoring it almost the entire
+                                class had been rewritten and logic was completely different (along with reduced complexity).
+
+                            </p>
+                        </li>
+                        <li>
+                            <p class="py-4">
+                                - Refactored <i class="code">Wishart</i> and <i class="code">MatrixNormal</i> 
+                                distribution
+                                 <a href="https://github.com/pymc-devs/pymc3/pull/4777" class="bloglink">#4777</a>: 
+                                 <i class="code">MatrixNormal</i>  was one of the distributions which had a few shape issues associated with it. They
+                                mostly originated from the fact that <i class="code">MatrixNormal</i> 's logp function had <i class="code">Ops</i> (Aesara operations) that
+                                could only support two-dimensional values. In the end, we had to restrict its input shapes to
+                                2-dimensional in order for the underlying logic to work properly. This was done in <a href="https://github.com/pymc-devs/pymc3/pull/4848" class="bloglink">#4848</a>
+                                
+                            </p>
+                        </li>
+                    </ul>
+                    
+                    
+                    </p>
+
+                    
+                </div>
+                <div class="text-3xl font-bold">
+                    <i class="text-blue-500">#</i> Second Half of GSoC:
+                </div>
+                <div class="text-2xl px-20 py-4">
+                    <p>
+                        Now, this was the more challenging part of my GSoC. 
+                        The distributions that I had to refactor during this period were 
+                        particularly complex and non-standard.  
+                    </p>
+<br>
+<p>
+    The first and foremost distribution I'd like to mention here is the <i class="code">Bound</i> distribution. 
+    It was refactored in <a href="https://github.com/pymc-devs/pymc3/pull/4815" class="bloglink">#4815</a>.
+     The challenges faced here were making class separations for <i class="code">Continous</i>  and 
+     <i class="code">Discrete</i>  distributions classes(since during sampling they're handled differently and
+      having a single <i class="code">Bound</i> class might hamper our ability to sample properly from the 
+      underlying class), calculating the suitable initial value for the bounded distributions, 
+      well-defined error handling, and making proper argument checks. Special kudos to
+       <a href="https://github.com/ricardoV94" class="bloglink">@ricardo</a> for helping me out immensely with the <i class="code">Bound</i> distribution. (and everywhere else too of course)
+
+</p>
+
+<br>
+<p>
+    Next, we have the <i class="code">LKJCorr</i> and the <i class="code">LKJCholeskyCov</i> Distributions. 
+    Now refactoring the <i class="code">LKJCorr</i> Distribution wasn't all that complex, 
+    in-fact we already have that up and running over here in <a href="https://github.com/pymc-devs/pymc3/pull/4784" class="bloglink">#4784</a>. 
+    But the other one of this pair, <i class="code">LKJCholeskyCov</i> , although based upon the same logic as before,
+     fails to sample. So far we don't have an idea as to what causes it to fail, cause the 
+     failure isn't code-related, it's sampling-related. (i.e. it fails during the actual sampling, 
+     not upon sampling.) But we're working on that. Once that's fixed + a little testing code logic 
+     and we'll be good to go over here.
+
+</p>
+
+<br>
+<p>
+    Finally, we have the <i class="code">Mixture</i> distribution. 
+    Now this one comes with a little bit of a twist. Initially, 
+    the plan was to refactor this distribution like the others. i.e. 
+    using the new <i class="code">RandomVariable</i> + <i class="code">Distribution</i> format. In fact, I had already 
+    started making a version of it in  <a href="https://github.com/pymc-devs/pymc3/pull/4825" class="bloglink">#4825</a>. 
+    But well, the developers at Aesara had a much better alternative to offer. 
+    <a href="https://github.com/brandonwillard" class="bloglink">@brandonwillard</a> had recently created a 
+    new Aesara based library called <i class="code">aeppl</i> which provides various tools for PPL written in Aesara. You can check it out 
+    <a href="https://github.com/aesara-devs/aeppl" class="bloglink">over here</a>. <i class="code">aeppl</i>'s primary job back then was to convert
+     graphs containing Aesara RandomVariables into joint log-probability graphs.
+      (It has now grown to do much more than that, and probably more in the future.) 
+    This allowed us to build mixtures of distributions with flexibility unlike the 
+    one provided by <i class="code">Mixture</i> back in <i class="code">v3</i> (PyMC3 version 3.x) plus it has the robustness to its execution
+     due to the Aesara's + its own optimizations being performed in the background.
+      Some of the examples are given in the Readme section <a href="https://github.com/aesara-devs/aeppl" class="bloglink">over here</a>. 
+
+</p>
+<br>
+<p>
+    So considering the things mentioned above the new plan with <i class="code">Mixture</i>s 
+    was to implement an approach which will call <i class="code">aeppl</i>'s <i class="code">joint_logprob</i> function 
+    in the background (for those wondering what <i class="code">joint_logprob</i> is, it's basically a
+     function that boils down to give me the log probability of this variable/set of
+      functions I'm passing to you, given the point values for every <i class="code">Distribution</i> involved.)
+       For instance, making a <i class="code">Mixture</i> distribution log-probability calculation is a simple 
+       call to <i class="code">joint_logprob</i> by stacking the weighted <i class="code">Distribution</i> components 
+       on one another using <i class="code">at.stack</i> and indexing them using Aesara's indexing which works similar to Numpy's `fancy` indexing. 
+       Integrating this into PyMC and sampling from it, however, is an entirely different 
+       story. For starters, we needed to remove PyMC's internal <i class="code">_logp</i> framework and replace
+        it with <i class="code">joint_logprob</i>'s <i class="code">_logprob</i> framework. (The 
+        <i class="code">_logp</i> in PyMC and <i class="code">_logprob</i> in aeppl 
+        are <i class="code">singledispatch</i> functions in respective libraries dispatched based upon the class 
+        of random variables for which the log probability is being calculated ) Along with a 
+        lot of other things including making the distribution of transforms of both libraries 
+        compatible with each other, hence making the refactoring. Hence this one got converted
+         into a whole new mini-project of its own. I have underlined the things we need to do 
+         in the PR over here in <a href="https://github.com/pymc-devs/pymc3/pull/4887" class="bloglink">#4887</a>. Hence getting the 
+         <i class="code">Mixture</i> up and running will take up a bit of time to be finished. But once it's finished,
+          it'll make PyMC's entire log probability framework much more robust in addition to 
+          supporting <i class="code">Mixture</i> distributions. 
+
+</p>
+<br>
+<p>
+    More importantly, implementing aeppl support will,
+     in near future, enable PyMC to implement time series 
+     in a completely different manner. At aeppl side too we're 
+     working upon <a href="https://github.com/aesara-devs/aeppl/pull/24" class="bloglink">#24</a> which
+      will enable us to calculate log-probabilities of entire functions, 
+      using Aesara's <i class="code">Scan</i> Ops. (The <i class="code">Scan</i> Op being the Aesara's representation 
+      of a for loop, but with much greater capabilities, see documentation <a href="https://aesara.readthedocs.io/en/latest/library/scan.html" class="bloglink">here</a>). 
+      This will allow us to generate an interface in PyMC which would basically 
+      allow us to calculate values and log probabilities of nearly any time series
+       which can be generated using PyMC's distributions. Something similar to a 
+       function proposed in <a href="https://github.com/pymc-devs/pymc3/issues/4047" class="bloglink">#4047</a> but
+       encapsulating the entire time series concept rather than a single class of 
+       Gaussian random walks. Although all this is a work in progress right now, we 
+       expect to see results soon enough.
+
+</p>
+
+</div>
+<div class="text-3xl font-bold">
+    <i class="text-blue-500">#</i> List of contributions made during GSoC
+</div>
+<div class="text-2xl px-20 py-4">
+    
+    This is a list of PRs underlining the contributions I've made to PyMC and Aesara during GSoC. I have explained each one above but here I'll summarize them briefly: 
+    <ul style="padding-left: 50px;">
+        <li>
+            <p class="py-4">
+                - Added <i class="code">JITLinker</i>-based <i class="code">NumbaLinker</i> in 
+                <a href="https://github.com/aesara-devs/aesara/pull/372" class="bloglink">#372</a>.
+            </p>
+        </li>
+        <li>
+            <p class="py-4">
+                - Added Numba conversion for
+                <i class="code">RandomVariable</i>  Ops in 
+                <a href="https://github.com/aesara-devs/aesara/pull/403" class="bloglink">#403</a>.
+
+            </p>
+        </li>
+        <li>
+            <p class="py-4">
+                - Introduce Numpy <i class="code">Generators</i> 
+                in <i class="code">RandomVariable</i> during <a href="https://github.com/aesara-devs/aesara/pull/420" class="bloglink">#420</a>.
+            </p>
+        </li>
+        <li>
+            <p class="py-4">
+                - Refactored continuous distributions to v4 (<i class="code">AsymmetricLaplace</i>, <i class="code">HalfStudentT</i>,
+                <i class="code">ExGaussian</i> ,
+                <i class="code">Interpolated</i>) in <a href="https://github.com/pymc-devs/pymc3/pull/4746" class="bloglink">#4746</a>.
+            </p>
+        </li>
+        <li>
+            <p class="py-4">
+                - Porting <i class="code">KroneckerNormal</i> distribution to v4 in <a href="https://github.com/pymc-devs/pymc3/pull/4774" class="bloglink">#4774</a>
+
+            </p>
+        </li>
+        <li>
+            <p class="py-4">
+                - Refactored <i class="code">Wishart</i> and <i class="code">MatrixNormal</i> distribution in <a href="https://github.com/pymc-devs/pymc3/pull/4777" class="bloglink">#4777</a>
+
+            </p>
+        </li>
+        <li>
+            <p class="py-4">
+                - Fixed <i class="code">MatrixNormal</i> shape handling in <a href="https://github.com/pymc-devs/pymc3/pull/4848" class="bloglink">#4848</a>
+            </p>
+        </li>
+        <li>
+            <p class="py-4">
+                - Refactored <i class="code">Bound</i> for v4 in <a href="https://github.com/pymc-devs/pymc3/pull/4815" class="bloglink">#4815</a>
+            </p>
+        </li>
+        <li>
+            <p class="py-4">
+                - Refactored <i class="code">LKJCorr</i> and <i class="code">LKJCholeskyCov</i> in <a href="https://github.com/pymc-devs/pymc3/pull/4784" class="bloglink">#4784</a>
+            </p>
+        </li>
+        <li>
+            <p class="py-4">
+                - Add support for symbolic initval using a singledispatch approach in <a href="https://github.com/pymc-devs/pymc3/pull/4912" class="bloglink">#4912</a>
+            </p>
+        </li>
+        <li>
+            <p class="py-4">
+                - Integration of aeppl with PyMC in <a href="https://github.com/pymc-devs/pymc3/pull/4887" class="bloglink">4887</a>
+            </p>
+        </li>
+        <li>
+            <p class="py-4">
+                - Add support for <i class="code">Scan</i> Ops in <i class="code">joint_logprob</i> in <a href="https://github.com/aesara-devs/aeppl/pull/24" class="bloglink">#24</a>
+            </p>
+        </li>
+
+    </ul>
+</div>
+
+          
+                <div class="text-3xl font-bold">
+                    <i class="text-blue-500">#</i> Future Goals
+                </div>
+                <div class="text-2xl px-20 py-4">
+                    These are some tasks I would be working upon in near future:
+                    <ul style="padding-left: 50px;">
+                        <li>
+                            <p class="py-4">
+                                - Continue working with PyMC-aeppl integration in <a href="https://github.com/pymc-devs/pymc3/pull/4887" class="bloglink">#4887</a>
+                            </p>
+                        </li>
+                        <li>
+                            <p class="py-4">
+                                - Finishing up Scan log probabilities in aeppl in <a href="https://github.com/aesara-devs/aeppl/pull/24" class="bloglink">#24</a>
+                
+                            </p>
+                        </li>
+                        <li>
+                            <p class="py-4">
+                                - Adding an improved version of time-series once Scan log probabilities is implemented in aeppl
+                            </p>
+                        </li>
+                       
+                
+                    </ul>
+
+
+                </div>
+                <div class="text-3xl font-bold">
+                    <i class="text-blue-500">#</i> Conclusion
+                </div>
+                <div class="text-2xl px-20 py-4">
+                    <p class="py-4">
+                        It was an incredible experience contributing to open source. 
+                        By working together with contributors across the world, I have improved my
+                         technical as well as non-technical skills by a lot, and definitely by a greater 
+                         margin than what I could've done on my own.
+                        I want to thank my mentors Brandon Willard <a href="https://github.com/brandonwillard" class="bloglink">@brandonwillard</a> 
+                        and Thomas Wiecki <a href="https://github.com/twiecki" class="bloglink">@twiecki</a> for being extremely supportive 
+                        throughout this entire journey. I also want to thank the NumFOCUS community for sharing
+                         this opportunity via Google Summer of Code.
+                        <br><br>
+                        Thank you for being a part of this fantastic summer
+                        <br><br>
+                        -- Kaustubh Chaudhari
+
+                    </p>
+                </div>
+            </div>
+        </div>
+
+         <footer>
+            <span>Created By Kaustubh Chaudhari |
+                <span class="far fa-copyright"></span> 2020 All rights reserved.</span>
+        </footer>
+    </div>
+
+    <!-- footer section start -->
+
+    <script src="../../blog_scripts/blog_home.js"></script>
+</body>
+
+</html>
